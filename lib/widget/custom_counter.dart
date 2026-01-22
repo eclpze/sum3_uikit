@@ -3,7 +3,6 @@ import 'package:sum3_uikit/colors.dart';
 import 'package:sum3_uikit/widget/custom_icon.dart';
 
 // Губайдуллина Камилла, 22.01.2026 20:03, счетчик
-
 class CustomCounter extends StatelessWidget {
   final Color color; // Цвет счетчика
   final double borderRadius; // Закругление
@@ -15,7 +14,6 @@ class CustomCounter extends StatelessWidget {
   final double widthMinus; // Ширина иконки
   final double heightMinus; // Высота иконки
   final String pathMinus; // Путь к иконке
-
 
   const CustomCounter({
     super.key,

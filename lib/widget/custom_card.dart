@@ -5,10 +5,10 @@ import 'package:sum3_uikit/widget/custom_button.dart';
 import 'package:sum3_uikit/widget/custom_counter.dart';
 import 'package:sum3_uikit/widget/custom_icon.dart';
 
-
+// Тип карточки
 enum CardType { primary, cart, project }
 
-// Губайдуллина Камилла, 22.01.2026 20:34,
+// Губайдуллина Камилла, 22.01.2026 20:34, карточка
 class CustomCard extends StatelessWidget {
   final CardType type; // Тип карточки
   final Color colorCard; // Цвет карточки
@@ -33,7 +33,7 @@ class CustomCard extends StatelessWidget {
   final double? widthMinus; // Ширина иконки
   final double? heightMinus; // Высота иконки
   final String? pathMinus; // Путь к иконке
-  final double margin; //
+  final double margin; // Отступы
   final String? textButton; // Текст кнопки
   final String? textButton2; // Текст кнопки 2
   final double? widthButton; // Ширина кнопки
@@ -90,7 +90,7 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: margin, vertical: margin/2),
+      padding: EdgeInsets.symmetric(horizontal: margin, vertical: margin / 2),
       child: Card(
         color: colorCard,
         shape: RoundedRectangleBorder(
@@ -177,10 +177,8 @@ class CustomCard extends StatelessWidget {
               if (type == CardType.project)
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [Text(
-                    text,
-                    style: captionSemibold.copyWith(color: caption),
-                  ),
+                  children: [
+                    Text(text, style: captionSemibold.copyWith(color: caption)),
                     Spacer(),
                     CustomButton(
                       textButton: textButton!,

@@ -1,19 +1,18 @@
-
 import 'package:flutter/material.dart';
 import 'package:sum3_uikit/colors.dart';
 import 'package:sum3_uikit/styles.dart';
 
-// Губайдуллина Камилла, 21.01.2026 13:54, выпадающий список в приложение
-
+// Тип выпадающего списка
 enum DropDownType { no_smiles, smiles }
 
+// Губайдуллина Камилла, 21.01.2026 13:54, выпадающий список
 class CustomDropDown extends StatefulWidget {
   final DropDownType type; // Тип списка
-  final String hint; // Заголовок
+  final String hint; // Заголовок списка
   final List<String> title; // Список вариантов
   final List<String>? smile; // Список смайликов
   final double borderRadius; // Закругление
-  final Color color; // Цвет
+  final Color color; // Цвет списка
   final double padding; // Внешние отступы
   final double margin; // Внутренние отступы
 
@@ -56,16 +55,16 @@ class _CustomDropDownState extends State<CustomDropDown> {
         ),
         items: List.generate(
           widget.title.length,
-              (index) => DropdownMenuItem(
+          (index) => DropdownMenuItem(
             value: widget.title[index],
             child: (widget.type == DropDownType.smiles)
                 ? Row(
-              children: [
-                Text(widget.smile![index], style: headlineRegular),
-                SizedBox(width: 5),
-                Text(widget.title[index], style: headlineRegular),
-              ],
-            )
+                    children: [
+                      Text(widget.smile![index], style: headlineRegular),
+                      SizedBox(width: 5),
+                      Text(widget.title[index], style: headlineRegular),
+                    ],
+                  )
                 : Text(widget.title[index], style: headlineRegular),
           ),
         ),

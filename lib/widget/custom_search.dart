@@ -64,11 +64,11 @@ class _CustomSearchState extends State<CustomSearch> {
           ),
           suffixIcon: widget.controller.text.isNotEmpty
               ? CustomIcon(
-            onIcon: widget.onPressed2,
-            widthIcon: widget.widthIcon2,
-            heightIcon: widget.heightIcon2,
-            pathIcon: widget.pathIcon2,
-          )
+                  onIcon: widget.onPressed2,
+                  widthIcon: widget.widthIcon2,
+                  heightIcon: widget.heightIcon2,
+                  pathIcon: widget.pathIcon2,
+                )
               : null,
           hintText: widget.hintText,
           hintStyle: headlineRegular.copyWith(color: caption),

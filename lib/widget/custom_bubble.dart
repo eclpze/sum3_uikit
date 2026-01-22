@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-// Губайдуллина Камилла, 22.01.2026 17:52, кнопка c фоном в приложении
+// Губайдуллина Камилла, 22.01.2026 17:52, иконка c фоном
 class CustomBubble extends StatelessWidget {
   final VoidCallback onBubble; // Действие при нажатии на иконку
   final double widthBubble; // Ширина иконки

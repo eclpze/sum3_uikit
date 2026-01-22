@@ -3,9 +3,10 @@ import 'package:sum3_uikit/colors.dart';
 import 'package:sum3_uikit/styles.dart';
 import 'package:sum3_uikit/widget/custom_icon.dart';
 
-// Губайдуллина Камилла, 21.01.2026 14:38, текстовое поле для ввода данных
+// Тип текстового поля
 enum TextFieldType { text, data, password }
 
+// Губайдуллина Камилла, 21.01.2026 14:38, текстовое поле для ввода данных
 class CustomTextField extends StatefulWidget {
   final TextFieldType type; // Тип поля
   final bool isTitle; // Переменная для показа заголовка
