@@ -66,10 +66,12 @@ class CustomModal {
             ),
             SizedBox(height: 20),
             Text(text1, style: headlineMedium.copyWith(color: caption)),
+            SizedBox(height: 10),
             if (text2 != null) Text(text2, style: textRegular),
             SizedBox(height: 40),
             if (text3 != null)
               Text(text3, style: headlineMedium.copyWith(color: caption)),
+            SizedBox(height: 10),
             if (text4 != null) Text(text4, style: textRegular),
             SizedBox(height: 20),
             if (hasButton &&
