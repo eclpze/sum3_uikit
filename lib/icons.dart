@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class IconPackage {
   static const String _fontFamily = 'CustomIcon';
