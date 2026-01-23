@@ -2,6 +2,7 @@ library sum3_uikit;
 
 export 'colors.dart';
 export 'styles.dart';
+export 'icons.dart';
 export 'widget/custom_bubble.dart';
 export 'widget/custom_button.dart';
 export 'widget/custom_card.dart';
