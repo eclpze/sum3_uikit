@@ -88,11 +88,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                           obscureText = !obscureText;
                         });
                       },
-                      widthIcon: widget.widthIcon,
-                      heightIcon: widget.heightIcon,
+                      widthIcon: widget.widthIcon!,
+                      heightIcon: widget.heightIcon!,
                       pathIcon: obscureText
-                          ? widget.pathIcon
-                          : widget.pathIcon2,
+                          ? widget.pathIcon!
+                          : widget.pathIcon2!,
                     )
                   : null,
               hintText: widget.hintText,
