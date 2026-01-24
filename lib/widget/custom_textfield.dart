@@ -20,11 +20,11 @@ class CustomTextField extends StatefulWidget {
   final Color errorColor; // Цвет границ
   final Color focusColor; // Цвет границ
   final double borderRadius; // Закругление
-  final VoidCallback onPressed; // Действие при нажатии на иконку
-  final double widthIcon; // Ширина иконки
-  final double heightIcon; // Высота иконки
-  final String pathIcon; // Путь к иконке
-  final String pathIcon2; // Путь к иконке
+  final VoidCallback? onPressed; // Действие при нажатии на иконку
+  final double? widthIcon; // Ширина иконки
+  final double? heightIcon; // Высота иконки
+  final String? pathIcon; // Путь к иконке
+  final String? pathIcon2; // Путь к иконке
   final double padding; // Внешние отступы
   final String? error; // Текст ошибки
 
