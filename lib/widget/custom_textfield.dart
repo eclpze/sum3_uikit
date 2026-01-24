@@ -38,16 +38,17 @@ class CustomTextField extends StatefulWidget {
     required this.hintText,
     required this.borderColor,
     required this.borderRadius,
-    required this.onPressed,
-    required this.widthIcon,
-    required this.heightIcon,
-    required this.pathIcon,
-    required this.pathIcon2,
+    this.onPressed,
+    this.widthIcon,
+    this.heightIcon,
+    this.pathIcon,
+    this.pathIcon2,
     required this.padding,
     this.error,
     required this.errorColor,
     required this.focusColor,
-    required this.colorTextField, required this.keyboardType,
+    required this.colorTextField,
+    required this.keyboardType,
   });
 
   @override
