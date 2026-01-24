@@ -9,6 +9,7 @@ enum TextFieldType { text, data, password }
 // Губайдуллина Камилла, 21.01.2026 14:38, текстовое поле для ввода данных
 class CustomTextField extends StatefulWidget {
   final TextFieldType type; // Тип поля
+  final TextInputType keyboardType; // Тип клавиатуры
   final bool isTitle; // Переменная для показа заголовка
   final String title; // Заголовок
   final TextEditingController controller; // Контроллер для поиска
@@ -46,7 +47,7 @@ class CustomTextField extends StatefulWidget {
     this.error,
     required this.errorColor,
     required this.focusColor,
-    required this.colorTextField,
+    required this.colorTextField, required this.keyboardType,
   });
 
   @override
@@ -73,6 +74,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
           if (widget.isTitle) SizedBox(height: 10),
           TextField(
+            keyboardType: widget.keyboardType,
             controller: widget.controller,
             cursorColor: widget.colorCursor,
             obscureText: (widget.type == TextFieldType.password)
