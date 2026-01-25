@@ -38,7 +38,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 335,
+      height: 60,
       margin: EdgeInsets.symmetric(horizontal: widget.margin),
       padding: EdgeInsets.symmetric(horizontal: widget.padding),
       decoration: BoxDecoration(
