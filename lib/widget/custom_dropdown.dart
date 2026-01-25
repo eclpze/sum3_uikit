@@ -51,10 +51,11 @@ class _CustomDropDownState extends State<CustomDropDown> {
         border: Border.all(color: input_stroke)
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Center(
-            child: SizedBox(
-              height: 55,
+          SizedBox(
+            height: 55,
+            child: Center(
               child: DropdownButton(
                 isExpanded: true,
                 underline: SizedBox.shrink(),
