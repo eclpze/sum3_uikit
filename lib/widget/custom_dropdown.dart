@@ -84,14 +84,17 @@ class _CustomDropDownState extends State<CustomDropDown> {
               },
             ),
           ),
-         if (hasError) Row(
-           children: [
-             Text(
-               widget.error!,
-               style: captionRegular.copyWith(color: error),
-             ),
-             Spacer(),
-           ],
+         if (hasError) Padding(
+           padding: const EdgeInsets.only(top: 10),
+           child: Row(
+             children: [
+               Text(
+                 widget.error!,
+                 style: captionRegular.copyWith(color: error),
+               ),
+               Spacer(),
+             ],
+           ),
          ),
         ],
       ),
