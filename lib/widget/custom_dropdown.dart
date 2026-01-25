@@ -15,6 +15,7 @@ class CustomDropDown extends StatefulWidget {
   final Color color; // Цвет списка
   final double padding; // Внешние отступы
   final double margin; // Внутренние отступы
+  final String? error; // Текст ошибки
 
   const CustomDropDown({
     super.key,
@@ -25,7 +26,7 @@ class CustomDropDown extends StatefulWidget {
     required this.color,
     required this.padding,
     required this.margin,
-    required this.hint,
+    required this.hint, this.error,
   });
 
   @override
@@ -35,8 +36,11 @@ class CustomDropDown extends StatefulWidget {
 class _CustomDropDownState extends State<CustomDropDown> {
   String? selectedIndex; // Выбранный элемент
 
+
   @override
   Widget build(BuildContext context) {
+    bool hasError = widget.error != null;
+
     return Container(
       height: 55,
       margin: EdgeInsets.symmetric(horizontal: widget.margin),
@@ -46,37 +50,50 @@ class _CustomDropDownState extends State<CustomDropDown> {
         borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
         border: Border.all(color: input_stroke)
       ),
-      child: Center(
-        child: DropdownButton(
-          isExpanded: true,
-          underline: SizedBox.shrink(),
-          dropdownColor: widget.color,
-          value: selectedIndex,
-          hint: Text(
-            widget.hint,
-            style: headlineRegular.copyWith(color: caption),
-          ),
-          items: List.generate(
-            widget.title.length,
-            (index) => DropdownMenuItem(
-              value: widget.title[index],
-              child: (widget.type == DropDownType.smiles)
-                  ? Row(
-                      children: [
-                        Text(widget.smile![index], style: headlineRegular),
-                        SizedBox(width: 5),
-                        Text(widget.title[index], style: headlineRegular),
-                      ],
-                    )
-                  : Text(widget.title[index], style: headlineRegular),
+      child: Column(
+        children: [
+          Center(
+            child: DropdownButton(
+              isExpanded: true,
+              underline: SizedBox.shrink(),
+              dropdownColor: widget.color,
+              value: selectedIndex,
+              hint: Text(
+                widget.hint,
+                style: headlineRegular.copyWith(color: caption),
+              ),
+              items: List.generate(
+                widget.title.length,
+                (index) => DropdownMenuItem(
+                  value: widget.title[index],
+                  child: (widget.type == DropDownType.smiles)
+                      ? Row(
+                          children: [
+                            Text(widget.smile![index], style: headlineRegular),
+                            SizedBox(width: 5),
+                            Text(widget.title[index], style: headlineRegular),
+                          ],
+                        )
+                      : Text(widget.title[index], style: headlineRegular),
+                ),
+              ),
+              onChanged: (newValue) {
+                setState(() {
+                  selectedIndex = newValue;
+                });
+              },
             ),
           ),
-          onChanged: (newValue) {
-            setState(() {
-              selectedIndex = newValue;
-            });
-          },
-        ),
+         if (hasError) Row(
+           children: [
+             Text(
+               widget.error!,
+               style: captionRegular.copyWith(color: error),
+             ),
+             Spacer(),
+           ],
+         ),
+        ],
       ),
     );
   }
