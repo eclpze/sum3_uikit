@@ -49,9 +49,9 @@ class _CustomDropDownState extends State<CustomDropDown> {
           margin: EdgeInsets.symmetric(horizontal: widget.margin),
           padding: EdgeInsets.symmetric(horizontal: widget.padding),
           decoration: BoxDecoration(
-            color: widget.color,
+            color: hasError ? error_textfield : widget.color,
             borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
-            border: Border.all(color: input_stroke)
+            border: Border.all(color: hasError ? error : input_stroke)
           ),
           child: Center(
             child: DropdownButton(
