@@ -42,69 +42,66 @@ class _CustomDropDownState extends State<CustomDropDown> {
   Widget build(BuildContext context) {
     bool hasError = widget.error != null;
 
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: widget.margin),
-      padding: EdgeInsets.symmetric(horizontal: widget.padding),
-      decoration: BoxDecoration(
-        color: widget.color,
-        borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
-        border: Border.all(color: input_stroke)
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
-            height: 55,
-            child: Center(
-              child: DropdownButton(
-                isExpanded: true,
-                underline: SizedBox.shrink(),
-                dropdownColor: widget.color,
-                value: selectedIndex,
-                hint: Text(
-                  widget.hint,
-                  style: headlineRegular.copyWith(color: caption),
-                ),
-                items: List.generate(
-                  widget.title.length,
-                  (index) => DropdownMenuItem(
-                    value: widget.title[index],
-                    child: (widget.type == DropDownType.smiles)
-                        ? Row(
-                            children: [
-                              Text(widget.smile![index], style: headlineRegular),
-                              SizedBox(width: 5),
-                              Text(widget.title[index], style: headlineRegular),
-                            ],
-                          )
-                        : Text(widget.title[index], style: headlineRegular),
-                  ),
-                ),
-                onChanged: (newValue) {
-                  setState(() {
-                    selectedIndex = newValue;
-                  });
-                  if (widget.onChanged != null) {
-                    widget.onChanged!(newValue);
-                  }
-                },
+    return Column(
+      children: [
+        Container(
+          height: 55,
+          margin: EdgeInsets.symmetric(horizontal: widget.margin),
+          padding: EdgeInsets.symmetric(horizontal: widget.padding),
+          decoration: BoxDecoration(
+            color: widget.color,
+            borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
+            border: Border.all(color: input_stroke)
+          ),
+          child: Center(
+            child: DropdownButton(
+              isExpanded: true,
+              underline: SizedBox.shrink(),
+              dropdownColor: widget.color,
+              value: selectedIndex,
+              hint: Text(
+                widget.hint,
+                style: headlineRegular.copyWith(color: caption),
               ),
+              items: List.generate(
+                widget.title.length,
+                (index) => DropdownMenuItem(
+                  value: widget.title[index],
+                  child: (widget.type == DropDownType.smiles)
+                      ? Row(
+                          children: [
+                            Text(widget.smile![index], style: headlineRegular),
+                            SizedBox(width: 5),
+                            Text(widget.title[index], style: headlineRegular),
+                          ],
+                        )
+                      : Text(widget.title[index], style: headlineRegular),
+                ),
+              ),
+              onChanged: (newValue) {
+                setState(() {
+                  selectedIndex = newValue;
+                });
+                if (widget.onChanged != null) {
+                  widget.onChanged!(newValue);
+                }
+              },
             ),
           ),
-         if (hasError) Padding(
-           padding: const EdgeInsets.only(top: 10),
-           child: Row(
-             children: [
-               Text(
-                 widget.error!,
-                 style: captionRegular.copyWith(color: error),
-               ),
-               Spacer(),
-             ],
-           ),
-         ),
-        ],
-      ),
+        ),
+        if (hasError) Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Row(
+            children: [
+              Text(
+                widget.error!,
+                style: captionRegular.copyWith(color: error),
+              ),
+              Spacer(),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
