@@ -43,7 +43,6 @@ class _CustomDropDownState extends State<CustomDropDown> {
     bool hasError = widget.error != null;
 
     return Container(
-      height: 55,
       margin: EdgeInsets.symmetric(horizontal: widget.margin),
       padding: EdgeInsets.symmetric(horizontal: widget.padding),
       decoration: BoxDecoration(
@@ -54,38 +53,41 @@ class _CustomDropDownState extends State<CustomDropDown> {
       child: Column(
         children: [
           Center(
-            child: DropdownButton(
-              isExpanded: true,
-              underline: SizedBox.shrink(),
-              dropdownColor: widget.color,
-              value: selectedIndex,
-              hint: Text(
-                widget.hint,
-                style: headlineRegular.copyWith(color: caption),
-              ),
-              items: List.generate(
-                widget.title.length,
-                (index) => DropdownMenuItem(
-                  value: widget.title[index],
-                  child: (widget.type == DropDownType.smiles)
-                      ? Row(
-                          children: [
-                            Text(widget.smile![index], style: headlineRegular),
-                            SizedBox(width: 5),
-                            Text(widget.title[index], style: headlineRegular),
-                          ],
-                        )
-                      : Text(widget.title[index], style: headlineRegular),
+            child: SizedBox(
+              height: 55,
+              child: DropdownButton(
+                isExpanded: true,
+                underline: SizedBox.shrink(),
+                dropdownColor: widget.color,
+                value: selectedIndex,
+                hint: Text(
+                  widget.hint,
+                  style: headlineRegular.copyWith(color: caption),
                 ),
+                items: List.generate(
+                  widget.title.length,
+                  (index) => DropdownMenuItem(
+                    value: widget.title[index],
+                    child: (widget.type == DropDownType.smiles)
+                        ? Row(
+                            children: [
+                              Text(widget.smile![index], style: headlineRegular),
+                              SizedBox(width: 5),
+                              Text(widget.title[index], style: headlineRegular),
+                            ],
+                          )
+                        : Text(widget.title[index], style: headlineRegular),
+                  ),
+                ),
+                onChanged: (newValue) {
+                  setState(() {
+                    selectedIndex = newValue;
+                  });
+                  if (widget.onChanged != null) {
+                    widget.onChanged!(newValue);
+                  }
+                },
               ),
-              onChanged: (newValue) {
-                setState(() {
-                  selectedIndex = newValue;
-                });
-                if (widget.onChanged != null) {
-                  widget.onChanged!(newValue);
-                }
-              },
             ),
           ),
          if (hasError) Padding(
