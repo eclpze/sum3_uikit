@@ -16,6 +16,7 @@ class CustomDropDown extends StatefulWidget {
   final double padding; // Внешние отступы
   final double margin; // Внутренние отступы
   final String? error; // Текст ошибки
+  final ValueChanged<String?>? onChanged; //
 
   const CustomDropDown({
     super.key,
@@ -26,7 +27,7 @@ class CustomDropDown extends StatefulWidget {
     required this.color,
     required this.padding,
     required this.margin,
-    required this.hint, this.error,
+    required this.hint, this.error, this.onChanged,
   });
 
   @override
@@ -81,6 +82,9 @@ class _CustomDropDownState extends State<CustomDropDown> {
                 setState(() {
                   selectedIndex = newValue;
                 });
+                if (widget.onChanged != null) {
+                  widget.onChanged!(newValue);
+                }
               },
             ),
           ),
