@@ -46,35 +46,37 @@ class _CustomDropDownState extends State<CustomDropDown> {
         borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
         border: Border.all(color: input_stroke)
       ),
-      child: DropdownButton(
-        isExpanded: true,
-        underline: SizedBox.shrink(),
-        dropdownColor: widget.color,
-        value: selectedIndex,
-        hint: Text(
-          widget.hint,
-          style: headlineRegular.copyWith(color: caption),
-        ),
-        items: List.generate(
-          widget.title.length,
-          (index) => DropdownMenuItem(
-            value: widget.title[index],
-            child: (widget.type == DropDownType.smiles)
-                ? Row(
-                    children: [
-                      Text(widget.smile![index], style: headlineRegular),
-                      SizedBox(width: 5),
-                      Text(widget.title[index], style: headlineRegular),
-                    ],
-                  )
-                : Text(widget.title[index], style: headlineRegular),
+      child: Center(
+        child: DropdownButton(
+          isExpanded: true,
+          underline: SizedBox.shrink(),
+          dropdownColor: widget.color,
+          value: selectedIndex,
+          hint: Text(
+            widget.hint,
+            style: headlineRegular.copyWith(color: caption),
           ),
+          items: List.generate(
+            widget.title.length,
+            (index) => DropdownMenuItem(
+              value: widget.title[index],
+              child: (widget.type == DropDownType.smiles)
+                  ? Row(
+                      children: [
+                        Text(widget.smile![index], style: headlineRegular),
+                        SizedBox(width: 5),
+                        Text(widget.title[index], style: headlineRegular),
+                      ],
+                    )
+                  : Text(widget.title[index], style: headlineRegular),
+            ),
+          ),
+          onChanged: (newValue) {
+            setState(() {
+              selectedIndex = newValue;
+            });
+          },
         ),
-        onChanged: (newValue) {
-          setState(() {
-            selectedIndex = newValue;
-          });
-        },
       ),
     );
   }
