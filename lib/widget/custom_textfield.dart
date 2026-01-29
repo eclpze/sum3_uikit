@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sum3_uikit/colors.dart';
 import 'package:sum3_uikit/styles.dart';
 import 'package:sum3_uikit/widget/custom_icon.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 // Тип текстового поля
 enum TextFieldType { text, data, password }
@@ -57,6 +58,10 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   bool obscureText = true;
+  final dataMask = MaskTextInputFormatter(
+    mask: '##.##.####',
+    filter: {'#': RegExp(r'[0-9]')}
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +83,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             keyboardType: widget.keyboardType,
             controller: widget.controller,
             cursorColor: widget.colorCursor,
+            inputFormatters: (widget.type == TextFieldType.data) ? [] : null,
             obscureText: (widget.type == TextFieldType.password)
                 ? obscureText
                 : false,

@@ -19,6 +19,7 @@ dev_dependencies:
   dropdown_button2: ^2.3.9
   google_fonts: ^8.0.0
   modal_bottom_sheet: ^3.0.0
+  mask_text_input_formatter: ^2.0.0
 
 flutter:
 
