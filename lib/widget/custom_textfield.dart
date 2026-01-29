@@ -83,7 +83,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             keyboardType: widget.keyboardType,
             controller: widget.controller,
             cursorColor: widget.colorCursor,
-            inputFormatters: (widget.type == TextFieldType.data) ? [] : null,
+            inputFormatters: (widget.type == TextFieldType.data) ? [dataMask] : null,
             obscureText: (widget.type == TextFieldType.password)
                 ? obscureText
                 : false,
