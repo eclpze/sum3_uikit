@@ -4,10 +4,10 @@ import 'package:sum3_uikit/colors.dart';
 import 'package:sum3_uikit/styles.dart';
 import 'package:sum3_uikit/widget/custom_icon.dart';
 
-// Губайдуллина Камилла, 21.01.2026 14:54, кнопка в приложение
-
+// Тип кнопки
 enum ButtonType { primary, inactive, secondary, tetriary, chips, cart, login }
 
+// Губайдуллина Камилла, 21.01.2026 14:54, кнопка
 class CustomButton extends StatelessWidget {
   final ButtonType type; // Тип кнопки
   final String textButton; // Текст кнопки

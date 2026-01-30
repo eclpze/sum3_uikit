@@ -15,7 +15,8 @@ class CustomTabBar extends StatelessWidget {
     required this.image,
     required this.title,
     required this.selectedValue,
-    required this.onPressed, required this.color,
+    required this.onPressed,
+    required this.color,
   });
 
   @override
@@ -31,7 +32,7 @@ class CustomTabBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       items: List.generate(
         title.length,
-            (index) => BottomNavigationBarItem(
+        (index) => BottomNavigationBarItem(
           label: title[index],
           icon: Image.asset(
             image[index],

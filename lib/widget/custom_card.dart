@@ -5,10 +5,10 @@ import 'package:sum3_uikit/widget/custom_button.dart';
 import 'package:sum3_uikit/widget/custom_counter.dart';
 import 'package:sum3_uikit/widget/custom_icon.dart';
 
-
+// Тип карточки
 enum CardType { primary, cart, project }
 
-// Губайдуллина Камилла, 22.01.2026 20:34,
+// Губайдуллина Камилла, 22.01.2026 20:34, карточка
 class CustomCard extends StatelessWidget {
   final CardType type; // Тип карточки
   final Color colorCard; // Цвет карточки
@@ -33,7 +33,7 @@ class CustomCard extends StatelessWidget {
   final double? widthMinus; // Ширина иконки
   final double? heightMinus; // Высота иконки
   final String? pathMinus; // Путь к иконке
-  final double margin; //
+  final double margin; // Отступы
   final String? textButton; // Текст кнопки
   final String? textButton2; // Текст кнопки 2
   final double? widthButton; // Ширина кнопки
@@ -46,6 +46,8 @@ class CustomCard extends StatelessWidget {
   final VoidCallback? onPressed; // Действие при нажатии на кнопку
   final double? paddingButton; // Внешние отступы
   final Color? colorBorder; // Цвет границ
+  final double? heightCounter; //
+  final double? widthCounter; //
 
   const CustomCard({
     super.key,
@@ -84,13 +86,13 @@ class CustomCard extends StatelessWidget {
     this.colorBorder,
     this.textButton2,
     this.colorButton2,
-    this.colorText2,
+    this.colorText2, this.heightCounter, this.widthCounter,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: margin, vertical: margin/2),
+      padding: EdgeInsets.symmetric(horizontal: margin, vertical: margin / 2),
       child: Card(
         color: colorCard,
         shape: RoundedRectangleBorder(
@@ -129,18 +131,22 @@ class CustomCard extends StatelessWidget {
                   children: [
                     Expanded(flex: 2, child: Text(price!, style: title3Medium)),
                     Text(text, style: textRegular),
-                    SizedBox(width: 10),
-                    CustomCounter(
-                      color: colorCounter!,
-                      borderRadius: radiusCounter!,
-                      onPlus: onPlus!,
-                      widthPlus: widthPlus!,
-                      heightPlus: heightPlus!,
-                      pathPlus: pathPlus!,
-                      onMinus: onMinus!,
-                      widthMinus: widthMinus!,
-                      heightMinus: heightMinus!,
-                      pathMinus: pathMinus!,
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: CustomCounter(
+                        color: colorCounter!,
+                        borderRadius: radiusCounter!,
+                        onPlus: onPlus!,
+                        widthPlus: widthPlus!,
+                        heightPlus: heightPlus!,
+                        pathPlus: pathPlus!,
+                        onMinus: onMinus!,
+                        widthMinus: widthMinus!,
+                        heightMinus: heightMinus!,
+                        pathMinus: pathMinus!,
+                        height: heightCounter!,
+                        width: widthCounter!,
+                      ),
                     ),
                   ],
                 ),
@@ -177,10 +183,8 @@ class CustomCard extends StatelessWidget {
               if (type == CardType.project)
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [Text(
-                    text,
-                    style: captionSemibold.copyWith(color: caption),
-                  ),
+                  children: [
+                    Text(text, style: captionSemibold.copyWith(color: caption)),
                     Spacer(),
                     CustomButton(
                       textButton: textButton!,

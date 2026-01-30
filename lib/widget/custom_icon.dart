@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-// Губайдуллина Камилла, 21.01.2026 14:25, иконка для текста
-
+// Губайдуллина Камилла, 21.01.2026 14:25, иконка
 class CustomIcon extends StatelessWidget {
   final VoidCallback onIcon; // Действие при нажатии на иконку
   final double widthIcon; // Ширина иконки

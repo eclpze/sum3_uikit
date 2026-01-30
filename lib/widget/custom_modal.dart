@@ -32,7 +32,6 @@ class CustomModal {
     required String? text3, // Текст 3
     required String? text4, // Текст 4
     required double padding, // Отступы
-
   }) {
     showMaterialModalBottomSheet(
       context: context,
@@ -66,10 +65,12 @@ class CustomModal {
             ),
             SizedBox(height: 20),
             Text(text1, style: headlineMedium.copyWith(color: caption)),
+            SizedBox(height: 10),
             if (text2 != null) Text(text2, style: textRegular),
             SizedBox(height: 40),
             if (text3 != null)
               Text(text3, style: headlineMedium.copyWith(color: caption)),
+            SizedBox(height: 10),
             if (text4 != null) Text(text4, style: textRegular),
             SizedBox(height: 20),
             if (hasButton &&
@@ -81,24 +82,24 @@ class CustomModal {
                 borderRadius != null &&
                 onPressed != null &&
                 paddingButton != null &&
-                type != null)  Row(
-              children: [
-                Spacer(),
-                CustomButton(
-                  textButton: textButton,
-                  widthButton: widthButton,
-                  heightButton: heightButton,
-                  colorButton: colorButton,
-                  colorText: colorText,
-                  borderRadius: borderRadius,
-                  onPressed: onPressed,
-                  padding: paddingButton,
-                  type: type,
-                ),
-                Spacer()
-              ],
-            )
-
+                type != null)
+              Row(
+                children: [
+                  Spacer(),
+                  CustomButton(
+                    textButton: textButton,
+                    widthButton: widthButton,
+                    heightButton: heightButton,
+                    colorButton: colorButton,
+                    colorText: colorText,
+                    borderRadius: borderRadius,
+                    onPressed: onPressed,
+                    padding: paddingButton,
+                    type: type,
+                  ),
+                  Spacer(),
+                ],
+              ),
           ],
         ),
       ),
