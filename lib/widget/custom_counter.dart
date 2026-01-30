@@ -14,6 +14,8 @@ class CustomCounter extends StatelessWidget {
   final double widthMinus; // Ширина иконки
   final double heightMinus; // Высота иконки
   final String pathMinus; // Путь к иконке
+  final double height; //
+  final double width; //
 
   const CustomCounter({
     super.key,
@@ -26,12 +28,14 @@ class CustomCounter extends StatelessWidget {
     required this.onMinus,
     required this.widthMinus,
     required this.heightMinus,
-    required this.pathMinus,
+    required this.pathMinus, required this.height, required this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),

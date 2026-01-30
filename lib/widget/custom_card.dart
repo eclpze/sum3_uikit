@@ -46,6 +46,8 @@ class CustomCard extends StatelessWidget {
   final VoidCallback? onPressed; // Действие при нажатии на кнопку
   final double? paddingButton; // Внешние отступы
   final Color? colorBorder; // Цвет границ
+  final double? heightCounter; //
+  final double? widthCounter; //
 
   const CustomCard({
     super.key,
@@ -84,7 +86,7 @@ class CustomCard extends StatelessWidget {
     this.colorBorder,
     this.textButton2,
     this.colorButton2,
-    this.colorText2,
+    this.colorText2, this.heightCounter, this.widthCounter,
   });
 
   @override
@@ -141,6 +143,8 @@ class CustomCard extends StatelessWidget {
                       widthMinus: widthMinus!,
                       heightMinus: heightMinus!,
                       pathMinus: pathMinus!,
+                      height: heightCounter!,
+                      width: widthCounter!,
                     ),
                   ],
                 ),
