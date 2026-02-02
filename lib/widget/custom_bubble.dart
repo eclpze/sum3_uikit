@@ -32,9 +32,9 @@ class CustomBubble extends StatelessWidget {
           color: colorBubble,
         ),
         child: SvgPicture.asset(
-            pathBubble,
-            width: widthBubble,
-            height: heightBubble,
+          pathBubble,
+          width: widthBubble,
+          height: heightBubble,
         ),
       ),
     );
