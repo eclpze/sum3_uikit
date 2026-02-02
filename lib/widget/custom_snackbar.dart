@@ -23,33 +23,40 @@ class CustomSnackBar {
           });
         }
 
-        return AlertDialog(
+        return Dialog(
           backgroundColor: colorSnackBar,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(radius)),
           ),
-          contentPadding: EdgeInsets.all(20),
-          actions: [
-            CustomBubble(
-              borderRadius: 20,
-              colorBubble: input_bg,
-              onBubble: () {
-                print('object');
-                Navigator.of(dialogContext).pop();
-              },
-              widthBubble: 25,
-              heightBubble: 25,
-              pathBubble: pathIcon,
-            )
-          ],
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(title, style: title2Semibold),
-              const SizedBox(height: 8),
-              Text(text, style: title2Semibold),
-            ],
+          insetPadding: EdgeInsets.all(40),
+          child: Container(
+            padding: EdgeInsets.all(24),
+            child: Stack(
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 8),
+                    Text(title, style: title2Semibold),
+                    SizedBox(height: 12),
+                    Text(text, style: title2Semibold),
+                  ],
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: CustomBubble(
+                    borderRadius: 20,
+                    colorBubble: input_bg,
+                    onBubble: () => Navigator.of(dialogContext).pop(),
+                    widthBubble: 25,
+                    heightBubble: 25,
+                    pathBubble: pathIcon,
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
