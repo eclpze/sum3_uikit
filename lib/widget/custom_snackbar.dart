@@ -12,6 +12,7 @@ class CustomSnackBar {
     required double radius, // Закругление окна
     required String pathIcon, // Путь к иконке
     int seconds = 5, // Переменная для автоматического закрытия окна
+    bool open = true, //
   }) {
     showDialog(
       context: context,
@@ -19,7 +20,8 @@ class CustomSnackBar {
       builder: (_) {
         if (seconds > 0) {
           Future.delayed(Duration(seconds: seconds), () {
-            Navigator.of(context).pop();
+            if (open && Navigator.of(context).canPop()) {
+            Navigator.of(context).pop();}
           });
         }
 
@@ -45,35 +47,18 @@ class CustomSnackBar {
                 ),
               ),
               Positioned(
-                top: -12,
-                right: -12,
-                child: GestureDetector(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: Container(
-                    width: 36,
-                    height: 36,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: CustomIcon(
-                      onIcon: () {
-                        Navigator.of(context).pop();
-                      },
-                      widthIcon: 20,
-                      heightIcon: 20,
-                      pathIcon: pathIcon,
-                    ),
-                  ),
+                top: 0,
+                right: 0,
+                child: CustomIcon(
+                  onIcon: () {
+                    open = false;
+                    Navigator.of(context).pop();
+                  },
+                  widthIcon: 20,
+                  heightIcon: 20,
+                  pathIcon: pathIcon,
                 ),
-              ),
+                ),
             ],
           ),
         );
