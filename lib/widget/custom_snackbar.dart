@@ -29,36 +29,26 @@ class CustomSnackBar {
             borderRadius: BorderRadius.all(Radius.circular(radius)),
           ),
           contentPadding: EdgeInsets.all(20),
-          content: Stack(
-            clipBehavior: Clip.none,
+          actions: [
+            CustomBubble(
+              borderRadius: 20,
+              colorBubble: input_bg,
+              onBubble: () {
+                print('object');
+                Navigator.of(dialogContext).pop();
+              },
+              widthBubble: 25,
+              heightBubble: 25,
+              pathBubble: pathIcon,
+            )
+          ],
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(title, style: title2Semibold),
-                    const SizedBox(height: 8),
-                    Text(text, style: title2Semibold),
-                  ],
-                ),
-              ),
-              Positioned(
-                top: -20,
-                right: -20,
-                child: CustomBubble(
-                  borderRadius: 20,
-                  colorBubble: input_bg,
-                  onBubble: () {
-                    print('object');
-                    Navigator.of(dialogContext).pop();
-                  },
-                  widthBubble: 25,
-                  heightBubble: 25,
-                  pathBubble: pathIcon,
-                ),
-              ),
+              Text(title, style: title2Semibold),
+              const SizedBox(height: 8),
+              Text(text, style: title2Semibold),
             ],
           ),
         );
