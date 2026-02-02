@@ -12,7 +12,6 @@ class CustomSnackBar {
     required double radius, // Закругление окна
     required String pathIcon, // Путь к иконке
     int seconds = 5, // Переменная для автоматического закрытия окна
-    bool open = true, // Переменная для закрытия окна
   }) {
     showDialog(
       context: context,
@@ -20,7 +19,7 @@ class CustomSnackBar {
       builder: (_) {
         if (seconds > 0) {
           Future.delayed(Duration(seconds: seconds), () {
-            if (open && Navigator.of(context).canPop()) {
+            if (Navigator.of(context).canPop()) {
               Navigator.of(context).pop();
             }
           });
@@ -54,7 +53,6 @@ class CustomSnackBar {
                   borderRadius: 20,
                   colorBubble: input_bg,
                   onBubble: () {
-                    open = false;
                     Navigator.of(context).pop();
                   },
                   widthBubble: 25,
