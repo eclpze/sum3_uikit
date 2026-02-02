@@ -16,6 +16,8 @@ class CustomDropDown extends StatefulWidget {
   final double padding; // Внешние отступы
   final double margin; // Внутренние отступы
   final String? error; // Текст ошибки
+  final bool isTitle; //
+  final String mainTitle; //
   final ValueChanged<String?>? onChanged; //
 
   const CustomDropDown({
@@ -27,7 +29,7 @@ class CustomDropDown extends StatefulWidget {
     required this.color,
     required this.padding,
     required this.margin,
-    required this.hint, this.error, this.onChanged,
+    required this.hint, this.error, this.onChanged, required this.isTitle, required this.mainTitle,
   });
 
   @override
@@ -44,6 +46,14 @@ class _CustomDropDownState extends State<CustomDropDown> {
 
     return Column(
       children: [
+        if (widget.isTitle)
+          Row(
+            children: [
+              Text(widget.mainTitle, style: captionRegular.copyWith(color: desc)),
+              Spacer(),
+            ],
+          ),
+        if (widget.isTitle) SizedBox(height: 10),
         Container(
           height: 55,
           margin: EdgeInsets.symmetric(horizontal: widget.margin),
