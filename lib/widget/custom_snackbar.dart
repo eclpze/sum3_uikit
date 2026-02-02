@@ -28,34 +28,26 @@ class CustomSnackBar {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(radius)),
           ),
-          contentPadding: EdgeInsets.all(20),
-          content: Stack(
-            clipBehavior: Clip.none,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(title, style: title2Semibold),
-                    const SizedBox(height: 8),
-                    Text(text, style: title2Semibold),
-                  ],
-                ),
+              Row(
+                children: [
+                  Text(title, style: title2Semibold),
+                  Spacer(),
+                  CustomIcon(
+                    onIcon: () {
+                      Navigator.of(dialogContext).pop();
+                    },
+                    widthIcon: 20,
+                    heightIcon: 20,
+                    pathIcon: pathIcon,
+                  ),
+                ],
               ),
-              Positioned(
-                top: -20,
-                right: -20,
-                child: CustomIcon(
-                  onIcon: () {
-                    Navigator.of(dialogContext).pop();
-                  },
-                  widthIcon: 20,
-                  heightIcon: 20,
-                  pathIcon: pathIcon,
-                ),
-              ),
+              const SizedBox(height: 8),
+              Text(text, style: title2Semibold),
             ],
           ),
         );
