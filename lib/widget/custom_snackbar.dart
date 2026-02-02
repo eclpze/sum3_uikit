@@ -45,8 +45,8 @@ class CustomSnackBar {
                 ),
               ),
               Positioned(
-                top: -30,
-                right: -30,
+                top: -20,
+                right: -20,
                 child: CustomBubble(
                   borderRadius: 20,
                   colorBubble: input_bg,
