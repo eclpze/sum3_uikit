@@ -22,19 +22,19 @@ class CustomBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: widthBubble + 10,
-      height: heightBubble + 10,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        color: colorBubble,
-      ),
-      child: IconButton(
-        onPressed: onBubble,
-        icon: SvgPicture.asset(
-          pathBubble,
-          width: widthBubble,
-          height: heightBubble,
+    return GestureDetector(
+      onTap: onBubble,
+      child: Container(
+        width: widthBubble + 10,
+        height: heightBubble + 10,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+          color: colorBubble,
+        ),
+        child: SvgPicture.asset(
+            pathBubble,
+            width: widthBubble,
+            height: heightBubble,
         ),
       ),
     );
