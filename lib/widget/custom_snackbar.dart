@@ -12,7 +12,7 @@ class CustomSnackBar {
     required double radius, // Закругление окна
     required String pathIcon, // Путь к иконке
     int seconds = 5, // Переменная для автоматического закрытия окна
-    bool open = true, //
+    bool open = true, // Переменная для закрытия окна
   }) {
     showDialog(
       context: context,
@@ -21,7 +21,8 @@ class CustomSnackBar {
         if (seconds > 0) {
           Future.delayed(Duration(seconds: seconds), () {
             if (open && Navigator.of(context).canPop()) {
-            Navigator.of(context).pop();}
+              Navigator.of(context).pop();
+            }
           });
         }
 
@@ -47,18 +48,20 @@ class CustomSnackBar {
                 ),
               ),
               Positioned(
-                top: 0,
-                right: 0,
-                child: CustomIcon(
-                  onIcon: () {
+                top: -30,
+                right: -30,
+                child: CustomBubble(
+                  borderRadius: 20,
+                  colorBubble: input_bg,
+                  onBubble: () {
                     open = false;
                     Navigator.of(context).pop();
                   },
-                  widthIcon: 20,
-                  heightIcon: 20,
-                  pathIcon: pathIcon,
+                  widthBubble: 25,
+                  heightBubble:25,
+                  pathBubble: pathIcon,
                 ),
-                ),
+              ),
             ],
           ),
         );
@@ -66,3 +69,4 @@ class CustomSnackBar {
     );
   }
 }
+
