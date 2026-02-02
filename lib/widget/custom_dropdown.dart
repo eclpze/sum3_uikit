@@ -47,11 +47,14 @@ class _CustomDropDownState extends State<CustomDropDown> {
     return Column(
       children: [
         if (widget.isTitle)
-          Row(
-            children: [
-              Text(widget.mainTitle, style: captionRegular.copyWith(color: desc)),
-              Spacer(),
-            ],
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: widget.padding),
+            child: Row(
+              children: [
+                Text(widget.mainTitle, style: captionRegular.copyWith(color: desc)),
+                Spacer(),
+              ],
+            ),
           ),
         if (widget.isTitle) SizedBox(height: 10),
         Container(
