@@ -51,6 +51,7 @@ class CustomSnackBar {
                   borderRadius: 20,
                   colorBubble: input_bg,
                   onBubble: () {
+                    print('object');
                     Navigator.of(dialogContext).pop();
                   },
                   widthBubble: 25,
