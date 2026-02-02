@@ -16,11 +16,11 @@ class CustomSnackBar {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (dialogContext) {
+      builder: (_) {
         if (seconds > 0) {
           Future.delayed(Duration(seconds: seconds), () {
-            if (Navigator.of(dialogContext).canPop()) {
-              Navigator.of(dialogContext).pop();
+            if (Navigator.of(context).canPop()) {
+              Navigator.of(context).pop();
             }
           });
         }
@@ -46,21 +46,18 @@ class CustomSnackBar {
                   ],
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(dialogContext).pop();
-                },
-                child: Positioned(
-                  top: -30,
-                  right: -30,
-                  child: CustomBubble(
-                    borderRadius: 20,
-                    colorBubble: input_bg,
-                    onBubble: () {},
-                    widthBubble: 25,
-                    heightBubble:25,
-                    pathBubble: pathIcon,
-                  ),
+              Positioned(
+                top: -30,
+                right: -30,
+                child: CustomBubble(
+                  borderRadius: 20,
+                  colorBubble: input_bg,
+                  onBubble: () {
+                    Navigator.of(context).pop();
+                  },
+                  widthBubble: 25,
+                  heightBubble:25,
+                  pathBubble: pathIcon,
                 ),
               ),
             ],
