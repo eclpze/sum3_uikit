@@ -19,9 +19,7 @@ class CustomSnackBar {
       builder: (_) {
         if (seconds > 0) {
           Future.delayed(Duration(seconds: seconds), () {
-            if (Navigator.of(context).canPop()) {
-              Navigator.of(context).pop();
-            }
+            Navigator.of(context).pop();
           });
         }
 
@@ -56,7 +54,7 @@ class CustomSnackBar {
                     Navigator.of(context).pop();
                   },
                   widthBubble: 25,
-                  heightBubble:25,
+                  heightBubble: 25,
                   pathBubble: pathIcon,
                 ),
               ),
@@ -67,4 +65,3 @@ class CustomSnackBar {
     );
   }
 }
-
