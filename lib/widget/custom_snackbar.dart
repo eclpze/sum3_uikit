@@ -46,18 +46,21 @@ class CustomSnackBar {
                   ],
                 ),
               ),
-              Positioned(
-                top: -30,
-                right: -30,
-                child: CustomBubble(
-                  borderRadius: 20,
-                  colorBubble: input_bg,
-                  onBubble: () {
-                    Navigator.of(dialogContext).pop();
-                  },
-                  widthBubble: 25,
-                  heightBubble:25,
-                  pathBubble: pathIcon,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(dialogContext).pop();
+                },
+                child: Positioned(
+                  top: -30,
+                  right: -30,
+                  child: CustomBubble(
+                    borderRadius: 20,
+                    colorBubble: input_bg,
+                    onBubble: () {},
+                    widthBubble: 25,
+                    heightBubble:25,
+                    pathBubble: pathIcon,
+                  ),
                 ),
               ),
             ],
