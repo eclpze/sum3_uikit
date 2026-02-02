@@ -16,10 +16,10 @@ class CustomSnackBar {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (_) {
+      builder: (dialogContext) {
         if (seconds > 0) {
           Future.delayed(Duration(seconds: seconds), () {
-            Navigator.of(context).pop();
+            Navigator.of(dialogContext).pop();
           });
         }
 
@@ -51,7 +51,7 @@ class CustomSnackBar {
                   borderRadius: 20,
                   colorBubble: input_bg,
                   onBubble: () {
-                    Navigator.of(context).pop();
+                    Navigator.of(dialogContext).pop();
                   },
                   widthBubble: 25,
                   heightBubble: 25,
