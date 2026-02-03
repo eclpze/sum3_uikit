@@ -7,6 +7,7 @@ class CustomIcon extends StatelessWidget {
   final double widthIcon; // Ширина иконки
   final double heightIcon; // Высота иконки
   final String pathIcon; // Путь к иконке
+  final double padding; //
 
   const CustomIcon({
     super.key,
@@ -14,13 +15,18 @@ class CustomIcon extends StatelessWidget {
     required this.widthIcon,
     required this.heightIcon,
     required this.pathIcon,
+    required this.padding,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onIcon,
-      child: SvgPicture.asset(pathIcon, width: widthIcon, height: heightIcon),
+      behavior: HitTestBehavior.opaque,
+      child: Padding(
+        padding: EdgeInsets.all(padding),
+        child: SvgPicture.asset(pathIcon, width: widthIcon, height: heightIcon),
+      ),
     );
   }
 }
