@@ -121,12 +121,12 @@ class CustomModal {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 30),
+                  SizedBox(height: 40),
                   GestureDetector(
                     onTap: onText1,
                     child: Text(
                       text1,
-                      style: headlineMedium.copyWith(color: caption),
+                      style: textRegular,
                     ),
                   ),
                   SizedBox(height: 20),
@@ -135,7 +135,7 @@ class CustomModal {
                       onTap: onText2,
                       child: Text(text2, style: textRegular),
                     ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 40),
                 ],
               ),
             ),
