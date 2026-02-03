@@ -121,7 +121,7 @@ class CustomModal {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 40),
+                  SizedBox(height: 30),
                   GestureDetector(
                     onTap: onText1,
                     child: Text(
@@ -135,7 +135,7 @@ class CustomModal {
                       onTap: onText2,
                       child: Text(text2, style: textRegular),
                     ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 30),
                 ],
               ),
             ),
