@@ -11,28 +11,28 @@ class CustomModal {
     required BuildContext context, // Контекст приложения
     required double borderRadiusModal, // Закругление формы модального окна
     required Color colorModal, // Цвет окна
-    VoidCallback? onIcon, // Действие при нажатии на иконку
-    double? widthIcon, // Ширина иконки
-    double? heightIcon, // Высота иконки
-    String? pathIcon, // Путь к иконке
-    String? title, // Заголовок
-    double? widthTitle, // Ширина заголовка
+    final VoidCallback? onIcon, // Действие при нажатии на иконку
+    final double? widthIcon, // Ширина иконки
+    final double? heightIcon, // Высота иконки
+    final String? pathIcon, // Путь к иконке
+    final String? title, // Заголовок
+    final double? widthTitle, // Ширина заголовка
     required bool hasButton, // Переменная для показа кнопки
-    ButtonType? type, // Тип кнопки
-    String? textButton, // Текст кнопки
-    double? widthButton, // Ширина кнопки
-    double? heightButton, // Высота кнопки
-    Color? colorButton, // Цвет кнопки
-    Color? colorText, // Цвет текста
-    double? borderRadius, // Закругление
-    VoidCallback? onPressed, // Действие при нажатии на кнопку
-    double? paddingButton, // Внешние отступы
+    final ButtonType? type, // Тип кнопки
+    final String? textButton, // Текст кнопки
+    final double? widthButton, // Ширина кнопки
+    final double? heightButton, // Высота кнопки
+    final Color? colorButton, // Цвет кнопки
+    final Color? colorText, // Цвет текста
+    final double? borderRadius, // Закругление
+    final VoidCallback? onPressed, // Действие при нажатии на кнопку
+    final double? paddingButton, // Внешние отступы
     required String text1, // Текст 1
-    String? text2, // Текст 2
-    String? text3, // Текст 3
-    String? text4, // Текст 4
-    VoidCallback? onText1, //
-    VoidCallback? onText2, //
+    final String? text2, // Текст 2
+    final String? text3, // Текст 3
+    final String? text4, // Текст 4
+    final VoidCallback? onText1, //
+    final VoidCallback? onText2, //
     required double padding, // Отступы
   }) {
     showMaterialModalBottomSheet(
