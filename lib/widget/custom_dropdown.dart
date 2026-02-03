@@ -19,6 +19,7 @@ class CustomDropDown extends StatefulWidget {
   final bool isTitle; //
   final String mainTitle; //
   final ValueChanged<String?>? onChanged; //
+  final double titlePadding; //
 
   const CustomDropDown({
     super.key,
@@ -29,7 +30,12 @@ class CustomDropDown extends StatefulWidget {
     required this.color,
     required this.padding,
     required this.margin,
-    required this.hint, this.error, this.onChanged, required this.isTitle, required this.mainTitle,
+    required this.hint,
+    this.error,
+    this.onChanged,
+    required this.isTitle,
+    required this.mainTitle,
+    required this.titlePadding,
   });
 
   @override
@@ -39,7 +45,6 @@ class CustomDropDown extends StatefulWidget {
 class _CustomDropDownState extends State<CustomDropDown> {
   String? selectedIndex; // Выбранный элемент
 
-
   @override
   Widget build(BuildContext context) {
     bool hasError = widget.error != null;
@@ -48,10 +53,13 @@ class _CustomDropDownState extends State<CustomDropDown> {
       children: [
         if (widget.isTitle)
           Padding(
-            padding:  EdgeInsets.symmetric(horizontal: widget.padding),
+            padding: EdgeInsets.symmetric(horizontal: widget.titlePadding),
             child: Row(
               children: [
-                Text(widget.mainTitle, style: captionRegular.copyWith(color: desc)),
+                Text(
+                  widget.mainTitle,
+                  style: captionRegular.copyWith(color: desc),
+                ),
                 Spacer(),
               ],
             ),
@@ -63,8 +71,10 @@ class _CustomDropDownState extends State<CustomDropDown> {
           padding: EdgeInsets.symmetric(horizontal: widget.padding),
           decoration: BoxDecoration(
             color: hasError ? error_textfield : widget.color,
-            borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
-            border: Border.all(color: hasError ? error : input_stroke)
+            borderRadius: BorderRadius.all(
+              Radius.circular(widget.borderRadius),
+            ),
+            border: Border.all(color: hasError ? error : input_stroke),
           ),
           child: Center(
             child: DropdownButton(
@@ -102,18 +112,19 @@ class _CustomDropDownState extends State<CustomDropDown> {
             ),
           ),
         ),
-        if (hasError) Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Row(
-            children: [
-              Text(
-                widget.error!,
-                style: captionRegular.copyWith(color: error),
-              ),
-              Spacer(),
-            ],
+        if (hasError)
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Row(
+              children: [
+                Text(
+                  widget.error!,
+                  style: captionRegular.copyWith(color: error),
+                ),
+                Spacer(),
+              ],
+            ),
           ),
-        ),
       ],
     );
   }
