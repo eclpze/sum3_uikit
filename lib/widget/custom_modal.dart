@@ -13,24 +13,24 @@ class CustomModal {
     required Color colorModal, // Цвет окна
     VoidCallback? onIcon, // Действие при нажатии на иконку
     double? widthIcon, // Ширина иконки
-     double? heightIcon, // Высота иконки
-     String? pathIcon, // Путь к иконке
-     String? title, // Заголовок
-     double? widthTitle, // Ширина заголовка
+    double? heightIcon, // Высота иконки
+    String? pathIcon, // Путь к иконке
+    String? title, // Заголовок
+    double? widthTitle, // Ширина заголовка
     required bool hasButton, // Переменная для показа кнопки
-     ButtonType? type, // Тип кнопки
-     String? textButton, // Текст кнопки
-     double? widthButton, // Ширина кнопки
-     double? heightButton, // Высота кнопки
-     Color? colorButton, // Цвет кнопки
-     Color? colorText, // Цвет текста
-     double? borderRadius, // Закругление
-     VoidCallback? onPressed, // Действие при нажатии на кнопку
-     double? paddingButton, // Внешние отступы
+    ButtonType? type, // Тип кнопки
+    String? textButton, // Текст кнопки
+    double? widthButton, // Ширина кнопки
+    double? heightButton, // Высота кнопки
+    Color? colorButton, // Цвет кнопки
+    Color? colorText, // Цвет текста
+    double? borderRadius, // Закругление
+    VoidCallback? onPressed, // Действие при нажатии на кнопку
+    double? paddingButton, // Внешние отступы
     required String text1, // Текст 1
-     String? text2, // Текст 2
-     String? text3, // Текст 3
-     String? text4, // Текст 4
+    String? text2, // Текст 2
+    String? text3, // Текст 3
+    String? text4, // Текст 4
     VoidCallback? onText1, //
     VoidCallback? onText2, //
     required double padding, // Отступы
@@ -67,11 +67,19 @@ class CustomModal {
               ],
             ),
             SizedBox(height: 20),
-            GestureDetector(onTap: onText1,
-                child: Text(text1, style: headlineMedium.copyWith(color: caption))),
+            GestureDetector(
+              onTap: onText1,
+              child: Text(
+                text1,
+                style: headlineMedium.copyWith(color: caption),
+              ),
+            ),
             SizedBox(height: 10),
-            if (text2 != null) GestureDetector(onTap: onText2,
-                child: Text(text2, style: textRegular)),
+            if (text2 != null)
+              GestureDetector(
+                onTap: onText2,
+                child: Text(text2, style: textRegular),
+              ),
             SizedBox(height: 40),
             if (text3 != null)
               Text(text3, style: headlineMedium.copyWith(color: caption)),

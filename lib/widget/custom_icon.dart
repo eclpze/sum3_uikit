@@ -14,19 +14,15 @@ class CustomIcon extends StatelessWidget {
     required this.onIcon,
     required this.widthIcon,
     required this.heightIcon,
-    required this.pathIcon,
-    required this.padding,
+    required this.pathIcon, required this.padding,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onIcon,
-      behavior: HitTestBehavior.opaque,
-      child: Padding(
-        padding: EdgeInsets.all(padding),
-        child: SvgPicture.asset(pathIcon, width: widthIcon, height: heightIcon),
-      ),
+    return IconButton(
+      onPressed: onIcon,
+      padding: EdgeInsets.all(padding),
+      icon: SvgPicture.asset(pathIcon, width: widthIcon, height: heightIcon),
     );
   }
 }
