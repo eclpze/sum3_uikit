@@ -18,9 +18,9 @@ class CustomIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: onIcon,
-      icon: SvgPicture.asset(pathIcon, width: widthIcon, height: heightIcon),
+    return GestureDetector(
+      onTap: onIcon,
+      child: SvgPicture.asset(pathIcon, width: widthIcon, height: heightIcon),
     );
   }
 }
