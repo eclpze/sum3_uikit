@@ -114,7 +114,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
         ),
         if (hasError)
           Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding:  EdgeInsets.only(top: 10, left: widget.margin, right: widget.margin),
             child: Row(
               children: [
                 Text(
