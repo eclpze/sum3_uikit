@@ -106,6 +106,7 @@ class CustomButton extends StatelessWidget {
             children: [
               Spacer(),
               CustomIcon(
+                padding: 0,
                 onIcon: onIcon!,
                 widthIcon: widthIcon!,
                 heightIcon: heightIcon!,

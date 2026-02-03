@@ -57,6 +57,7 @@ class _CustomSearchState extends State<CustomSearch> {
         },
         decoration: InputDecoration(
           prefixIcon: CustomIcon(
+            padding: 0,
             onIcon: widget.onPressed,
             widthIcon: widget.widthIcon,
             heightIcon: widget.heightIcon,
@@ -64,6 +65,7 @@ class _CustomSearchState extends State<CustomSearch> {
           ),
           suffixIcon: widget.controller.text.isNotEmpty
               ? CustomIcon(
+            padding: 0,
                   onIcon: widget.onPressed2,
                   widthIcon: widget.widthIcon2,
                   heightIcon: widget.heightIcon2,

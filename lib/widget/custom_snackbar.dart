@@ -37,6 +37,7 @@ class CustomSnackBar {
                   Text(title, style: title2Semibold),
                   Spacer(),
                   CustomIcon(
+                    padding: 0,
                     onIcon: () {
                       Navigator.of(dialogContext).pop();
                     },

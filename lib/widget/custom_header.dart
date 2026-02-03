@@ -58,6 +58,7 @@ class CustomHeader extends StatelessWidget {
             Text(title, style: title2Semibold),
             Spacer(),
             CustomIcon(
+              padding: 0,
               onIcon: onIcon,
               widthIcon: widthIcon,
               heightIcon: heightIcon,
@@ -85,6 +86,7 @@ class CustomHeader extends StatelessWidget {
                 ),
                 Spacer(),
                 CustomIcon(
+                  padding: 0,
                   onIcon: onIcon,
                   widthIcon: widthIcon,
                   heightIcon: heightIcon,

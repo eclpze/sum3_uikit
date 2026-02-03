@@ -58,6 +58,7 @@ class CustomModal {
                 ),
                 Spacer(),
                 CustomIcon(
+                  padding: 0,
                   onIcon: onIcon!,
                   widthIcon: widthIcon!,
                   heightIcon: heightIcon!,

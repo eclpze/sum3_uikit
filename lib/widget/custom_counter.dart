@@ -44,6 +44,7 @@ class CustomCounter extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           CustomIcon(
+            padding: 0,
             onIcon: onMinus,
             widthIcon: widthMinus,
             heightIcon: heightMinus,
@@ -51,6 +52,7 @@ class CustomCounter extends StatelessWidget {
           ),
           Container(width: 2, height: 25, color: input_stroke),
           CustomIcon(
+            padding: 0,
             onIcon: onPlus,
             widthIcon: widthPlus,
             heightIcon: heightPlus,

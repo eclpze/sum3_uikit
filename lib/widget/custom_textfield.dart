@@ -90,6 +90,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               suffixIcon: widget.type == TextFieldType.password
                   ? CustomIcon(
+                padding: 0,
                       onIcon: () {
                         setState(() {
                           obscureText = !obscureText;
