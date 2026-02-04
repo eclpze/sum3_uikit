@@ -125,24 +125,21 @@ class CustomButton extends StatelessWidget {
       );
     }
     if (type == ButtonType.chips) {
-      return Padding(
-        padding: EdgeInsets.symmetric(horizontal: padding),
-        child: ElevatedButton(
-          onPressed: onPressed,
-          style: ElevatedButton.styleFrom(
-            fixedSize: Size(widthButton, heightButton),
-            minimumSize: Size(widthButton, heightButton),
-            backgroundColor: isSelected! ? accent : colorButton,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-            ),
+      return ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          fixedSize: Size(widthButton, heightButton),
+          minimumSize: Size(widthButton, heightButton),
+          backgroundColor: isSelected! ? accent : colorButton,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
           ),
-          child: Text(
-            textButton,
-            overflow: TextOverflow.ellipsis,
-            style: title3Semibold.copyWith(
-              color: isSelected! ? white : colorText,
-            ),
+        ),
+        child: Text(
+          textButton,
+          overflow: TextOverflow.ellipsis,
+          style: title3Semibold.copyWith(
+            color: isSelected! ? white : colorText,
           ),
         ),
       );
