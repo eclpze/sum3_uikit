@@ -28,6 +28,8 @@ class CustomTextField extends StatefulWidget {
   final String? pathIcon2; // Путь к иконке
   final double padding; // Внешние отступы
   final String? error; // Текст ошибки
+  final Color colorErrorTextField;
+
 
   const CustomTextField({
     super.key,
@@ -49,7 +51,7 @@ class CustomTextField extends StatefulWidget {
     required this.errorColor,
     required this.focusColor,
     required this.colorTextField,
-    required this.keyboardType,
+    required this.keyboardType, required this.colorErrorTextField,
   });
 
   @override
@@ -106,7 +108,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               hintText: widget.hintText,
               hintStyle: headlineRegular.copyWith(color: caption),
               filled: true,
-              fillColor: hasError ? error_textfield : widget.colorTextField,
+              fillColor: hasError ? widget.colorErrorTextField : widget.colorTextField,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(widget.borderRadius),
