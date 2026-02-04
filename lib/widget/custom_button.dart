@@ -1,5 +1,6 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:sum3_uikit/colors.dart';
 import 'package:sum3_uikit/styles.dart';
 import 'package:sum3_uikit/widget/custom_icon.dart';
 
@@ -24,8 +25,6 @@ class CustomButton extends StatelessWidget {
   final String? pathIcon; // Путь к иконке
   final bool? isSelected; // Параметр для типа chips
   final double padding; // Внешние отступы
-  final Color? selectedButton; //
-  final Color? selectedText; //
 
   const CustomButton({
     super.key,
@@ -44,7 +43,7 @@ class CustomButton extends StatelessWidget {
     this.isSelected,
     required this.padding,
     required this.type,
-    this.onIcon, this.selectedButton, this.selectedText,
+    this.onIcon,
   });
 
   @override
@@ -133,7 +132,7 @@ class CustomButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             fixedSize: Size(widthButton, heightButton),
             minimumSize: Size(widthButton, heightButton),
-            backgroundColor: isSelected! ? selectedButton : colorButton,
+            backgroundColor: isSelected! ? accent : colorButton,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
             ),
@@ -142,7 +141,7 @@ class CustomButton extends StatelessWidget {
             textButton,
             overflow: TextOverflow.ellipsis,
             style: title3Semibold.copyWith(
-              color: isSelected! ? selectedText : colorText,
+              color: isSelected! ? white : colorText,
             ),
           ),
         ),
