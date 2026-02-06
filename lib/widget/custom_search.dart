@@ -65,10 +65,8 @@ class _CustomSearchState extends State<CustomSearch> {
           ),
           suffixIcon: widget.controller.text.isNotEmpty
               ? CustomIcon(
-                  padding: 0,
-                  onIcon: () {
-                    widget.controller.clear();
-                  },
+            padding: 0,
+                  onIcon: widget.onPressed2,
                   widthIcon: widget.widthIcon2,
                   heightIcon: widget.heightIcon2,
                   pathIcon: widget.pathIcon2,
