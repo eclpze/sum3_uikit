@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-// Губайдуллина Камилла, 22.01.2026 17:52, кнопка c фоном в приложении
+// Губайдуллина Камилла, 22.01.2026 17:52, иконка c фоном
 class CustomBubble extends StatelessWidget {
   final VoidCallback onBubble; // Действие при нажатии на иконку
   final double widthBubble; // Ширина иконки
@@ -22,16 +22,16 @@ class CustomBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: widthBubble + 10,
-      height: heightBubble + 10,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        color: colorBubble,
-      ),
-      child: IconButton(
-        onPressed: onBubble,
-        icon: SvgPicture.asset(
+    return GestureDetector(
+      onTap: onBubble,
+      child: Container(
+        width: widthBubble + 10,
+        height: heightBubble + 10,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+          color: colorBubble,
+        ),
+        child: SvgPicture.asset(
           pathBubble,
           width: widthBubble,
           height: heightBubble,

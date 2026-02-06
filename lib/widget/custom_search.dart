@@ -57,6 +57,7 @@ class _CustomSearchState extends State<CustomSearch> {
         },
         decoration: InputDecoration(
           prefixIcon: CustomIcon(
+            padding: 0,
             onIcon: widget.onPressed,
             widthIcon: widget.widthIcon,
             heightIcon: widget.heightIcon,
@@ -64,11 +65,12 @@ class _CustomSearchState extends State<CustomSearch> {
           ),
           suffixIcon: widget.controller.text.isNotEmpty
               ? CustomIcon(
-            onIcon: widget.onPressed2,
-            widthIcon: widget.widthIcon2,
-            heightIcon: widget.heightIcon2,
-            pathIcon: widget.pathIcon2,
-          )
+            padding: 0,
+                  onIcon: widget.onPressed2,
+                  widthIcon: widget.widthIcon2,
+                  heightIcon: widget.heightIcon2,
+                  pathIcon: widget.pathIcon2,
+                )
               : null,
           hintText: widget.hintText,
           hintStyle: headlineRegular.copyWith(color: caption),

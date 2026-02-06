@@ -3,9 +3,10 @@ import 'package:sum3_uikit/styles.dart';
 import 'package:sum3_uikit/widget/custom_bubble.dart';
 import 'package:sum3_uikit/widget/custom_icon.dart';
 
-// Губайдуллина Камилла, 22.01.2026 17:59, хэдер c двумя состояниями
+// Тип хэдера
 enum HeaderType { small, big }
 
+// Губайдуллина Камилла, 22.01.2026 17:59, хэдер
 class CustomHeader extends StatelessWidget {
   final HeaderType type; // Тип хэдера
   final String title; // Заголовок
@@ -57,6 +58,7 @@ class CustomHeader extends StatelessWidget {
             Text(title, style: title2Semibold),
             Spacer(),
             CustomIcon(
+              padding: 0,
               onIcon: onIcon,
               widthIcon: widthIcon,
               heightIcon: heightIcon,
@@ -84,6 +86,7 @@ class CustomHeader extends StatelessWidget {
                 ),
                 Spacer(),
                 CustomIcon(
+                  padding: 0,
                   onIcon: onIcon,
                   widthIcon: widthIcon,
                   heightIcon: heightIcon,

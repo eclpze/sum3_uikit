@@ -1,14 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:sum3_uikit/colors.dart';
 import 'package:sum3_uikit/styles.dart';
 import 'package:sum3_uikit/widget/custom_icon.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-// Губайдуллина Камилла, 21.01.2026 14:38, текстовое поле для ввода данных
+// Тип текстового поля
 enum TextFieldType { text, data, password }
 
-class CustomTextField extends StatelessWidget {
+// Губайдуллина Камилла, 21.01.2026 14:38, текстовое поле для ввода данных
+class CustomTextField extends StatefulWidget {
   final TextFieldType type; // Тип поля
+  final TextInputType keyboardType; // Тип клавиатуры
   final bool isTitle; // Переменная для показа заголовка
   final String title; // Заголовок
   final TextEditingController controller; // Контроллер для поиска
@@ -19,13 +21,15 @@ class CustomTextField extends StatelessWidget {
   final Color errorColor; // Цвет границ
   final Color focusColor; // Цвет границ
   final double borderRadius; // Закругление
-  final VoidCallback onPressed; // Действие при нажатии на иконку
-  final double widthIcon; // Ширина иконки
-  final double heightIcon; // Высота иконки
-  final String pathIcon; // Путь к иконке
-  final String pathIcon2; // Путь к иконке
+  final VoidCallback? onPressed; // Действие при нажатии на иконку
+  final double? widthIcon; // Ширина иконки
+  final double? heightIcon; // Высота иконки
+  final String? pathIcon; // Путь к иконке
+  final String? pathIcon2; // Путь к иконке
   final double padding; // Внешние отступы
   final String? error; // Текст ошибки
+  final Color colorErrorTextField;
+
 
   const CustomTextField({
     super.key,
@@ -37,70 +41,96 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     required this.borderColor,
     required this.borderRadius,
-    required this.onPressed,
-    required this.widthIcon,
-    required this.heightIcon,
-    required this.pathIcon,
-    required this.pathIcon2,
+    this.onPressed,
+    this.widthIcon,
+    this.heightIcon,
+    this.pathIcon,
+    this.pathIcon2,
     required this.padding,
     this.error,
     required this.errorColor,
     required this.focusColor,
     required this.colorTextField,
+    required this.keyboardType, required this.colorErrorTextField,
   });
 
   @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  bool obscureText = true;
+  final dataMask = MaskTextInputFormatter(
+    mask: '##.##.####',
+    filter: {'#': RegExp(r'[0-9]')}
+  );
+
+  @override
   Widget build(BuildContext context) {
-    bool obscureText = true;
-    final hasError = error != null;
+    final hasError = widget.error != null;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: padding),
+      padding: EdgeInsets.symmetric(horizontal: widget.padding),
       child: Column(
         children: [
-          if (isTitle)
+          if (widget.isTitle)
             Row(
               children: [
-                Text(title, style: captionRegular.copyWith(color: desc)),
+                Text(widget.title, style: captionRegular.copyWith(color: desc)),
                 Spacer(),
               ],
             ),
-          if (isTitle) SizedBox(height: 10,),
+          if (widget.isTitle) SizedBox(height: 10),
           TextField(
-            controller: controller,
-            cursorColor: colorCursor,
-            obscureText: (type == TextFieldType.password) ? obscureText : true,
+            keyboardType: widget.keyboardType,
+            controller: widget.controller,
+            cursorColor: widget.colorCursor,
+            inputFormatters: (widget.type == TextFieldType.data) ? [dataMask] : null,
+            obscureText: (widget.type == TextFieldType.password)
+                ? obscureText
+                : false,
             decoration: InputDecoration(
-              suffixIcon: (type == TextFieldType.password)
+              suffixIcon: widget.type == TextFieldType.password
                   ? CustomIcon(
-                onIcon: () {
-                  obscureText = !obscureText;
-                },
-                widthIcon: widthIcon,
-                heightIcon: heightIcon,
-                pathIcon: obscureText ? pathIcon : pathIcon2,
-              )
+                padding: 0,
+                      onIcon: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                        });
+                      },
+                      widthIcon: widget.widthIcon!,
+                      heightIcon: widget.heightIcon!,
+                      pathIcon: obscureText
+                          ? widget.pathIcon!
+                          : widget.pathIcon2!,
+                    )
                   : null,
-              hintText: hintText,
+              hintText: widget.hintText,
               hintStyle: headlineRegular.copyWith(color: caption),
               filled: true,
-              fillColor: hasError ? error_textfield : colorTextField,
+              fillColor: hasError ? widget.colorErrorTextField : widget.colorTextField,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(widget.borderRadius),
+                ),
                 borderSide: BorderSide(
-                  color: hasError ? errorColor : borderColor,
+                  color: hasError ? widget.errorColor : widget.borderColor,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(widget.borderRadius),
+                ),
                 borderSide: BorderSide(
-                  color: hasError ? errorColor : borderColor,
+                  color: hasError ? widget.errorColor : widget.borderColor,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(widget.borderRadius),
+                ),
                 borderSide: BorderSide(
-                  color: hasError ? errorColor : focusColor,
+                  color: hasError ? widget.errorColor : widget.focusColor,
                 ),
               ),
             ),
@@ -110,7 +140,10 @@ class CustomTextField extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Row(
                 children: [
-                  Text(error!, style: captionRegular.copyWith(color: errorColor)),
+                  Text(
+                    widget.error!,
+                    style: captionRegular.copyWith(color: widget.errorColor),
+                  ),
                   Spacer(),
                 ],
               ),
